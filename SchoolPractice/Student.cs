@@ -42,7 +42,40 @@ namespace SchoolPractice
             Gpa = gpa;
         }
 
+        public void AddGrade(int courseCredits, double grade)
+        {
+            // Update the appropriate fields: NumberOfCredits, Gpa
+            //takes in number of credits and the numerical grade
+            //gpa * NumberOfCredits / total credits = new gpa
 
+            double totalQualityScore = Gpa * NumberOfCredits;
+            totalQualityScore += courseCredits * grade;
+            NumberOfCredits += courseCredits;
+            Gpa = totalQualityScore / NumberOfCredits;
+    
+            
+        }
+
+        public string GetGradeLevel(int credits)
+        {
+            // Determine the grade level of the student based on NumberOfCredits
+            if (credits <= 29)
+            {
+                return ("Freshman");
+            }
+            else if (credits <= 59)
+            {
+                return ("Sophomore");
+            }
+            else if (credits <= 89)
+            {
+                return ("Junior");
+            }
+            else
+            {
+                return ("Senior");
+            }
+        }
 
 
     }
